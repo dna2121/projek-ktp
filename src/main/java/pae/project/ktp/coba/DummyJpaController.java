@@ -13,6 +13,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import org.springframework.web.bind.annotation.RequestBody;
 import pae.project.ktp.coba.exceptions.NonexistentEntityException;
 import pae.project.ktp.coba.exceptions.PreexistingEntityException;
 
@@ -34,7 +35,8 @@ public class DummyJpaController implements Serializable {
     public DummyJpaController() {
     }
 
-    public void create(Dummy dummy) throws PreexistingEntityException, Exception {
+    
+    public void create(@RequestBody Dummy dummy) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
